@@ -26,7 +26,7 @@ void setup() {
 
   delay(100); // Wait at least 30ms after first configuration
 
-  // Enable debug prints and LED indication
+  // Enable debug print and LED indication
   SigFox.debug();
 
   // Read and convert the module temperature
