@@ -9,7 +9,7 @@ float SensorTemperature = 0;
 int SensorHumidity = 0;
 
 typedef struct __attribute__ ((packed)) sigfox_message { // see http://www.catb.org/esr/structure-packing/#_structure_alignment_and_padding
-  int16_t moduleTemperature;
+  int8_t moduleTemperature;
 } SigfoxMessage;
 
 // stub for message which will be sent
@@ -39,8 +39,8 @@ void setup() {
   float Temperature = dht.readTemperature();
   // Read and convert the module temperature
   msg.moduleTemperature = (int32_t) (Temperature * 1.0);
-
-  Serial.print("Internal temp: ");
+  
+  Serial.print("DHT temp: ");
   Serial.print(msg.moduleTemperature, HEX); // display what we will send in Hexadecimal
   Serial.print(" (");
   Serial.print(msg.moduleTemperature); // display what we will send in Decimal
